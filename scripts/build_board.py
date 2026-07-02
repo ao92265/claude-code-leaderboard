@@ -176,11 +176,11 @@ a{{color:var(--hover)}}
   <h2>How to compete</h2>
   <div class="how">
     <ol>
-      <li>Install the <a href="https://github.com/ao92265/claude-code-playbook/tree/main/skills/myinsights">myinsights skill</a> and run <code>/myinsights</code> once.</li>
-      <li>Run <code>python3 ~/.claude/skills/myinsights/export_scores.py</code> — it prints your delta and writes <code>scores.json</code> (exactly 25 numbers; review it, that's everything that leaves your machine).</li>
-      <li>Fork this repo, add your file as <code>scores/&lt;your-handle&gt;/&lt;YYYY-MM-DD&gt;.json</code>, open a PR. CI validates the allowlist; merge = on the board.</li>
-      <li>Resubmit whenever you like. Delete your directory any time — no questions.</li>
+      <li>Install the <a href="https://github.com/ao92265/claude-code-playbook/tree/main/skills/myinsights">myinsights skill</a>.</li>
+      <li>Say <code>/myinsights submit</code>. It computes your scorecard locally, shows you the exact 25-number payload, and asks once. On yes it forks, commits, and opens the PR for you. Merge = on the board.</li>
+      <li>Resubmit any time with the same command. Say <code>delete me from the leaderboard</code> to remove yourself — no questions.</li>
     </ol>
+    <p style="margin:10px 0 0;color:var(--muted);font-size:12.5px">The one manual step is deliberate: nothing is ever submitted without you seeing the payload and saying yes. Prefer to do it by hand? PR <code>scores/&lt;handle&gt;/&lt;YYYY-MM-DD&gt;.json</code> yourself — CI validates the allowlist either way.</p>
   </div>
 
   <footer>

@@ -17,19 +17,27 @@ To compete you submit **exactly 25 numbers** — the factor scores, composite, g
 corpus counts. Nothing else. The allowlist is enforced by CI on every PR; every row on the
 board is publicly auditable in [`scores/`](scores/).
 
-## Compete
+## Compete — one command
 
-1. Install the skill, run `/myinsights` once.
-2. `python3 ~/.claude/skills/myinsights/export_scores.py` — prints your delta, writes
-   `scores.json`. Review it: that file is everything that leaves your machine.
-3. Fork, add `scores/<your-handle>/<YYYY-MM-DD>.json`, open a PR.
-   Handles: lowercase, 3–31 chars, `a-z0-9-`, pseudonymous by default.
-4. Resubmit whenever you like — your delta is measured against your own first submission.
-   Qualification for the ranked board: ≥50 sessions and ≥15 analyzed in your latest corpus.
+Install the [myinsights skill](https://github.com/ao92265/claude-code-playbook/tree/main/skills/myinsights),
+then say **`/myinsights submit`** in Claude Code. It computes your scorecard locally, shows
+you the exact 25-number payload, asks once, and on yes forks this repo, commits
+`scores/<your-handle>/<date>.json`, and opens the PR for you. Merge = on the board.
+
+The single manual step is deliberate: **nothing is submitted without you seeing the payload
+and saying yes.** No silent submission, no scheduling — by design.
+
+Manual alternative: run `export_scores.py` yourself and PR
+`scores/<handle>/<YYYY-MM-DD>.json` (handles: lowercase, 3–31 chars, `a-z0-9-`).
+CI validates the allowlist either way.
+
+Resubmit whenever you like — your delta is measured against your own first submission.
+Qualification for the ranked board: ≥50 sessions and ≥15 analyzed in your latest corpus.
 
 ## Delete yourself
 
-Open a PR removing your `scores/<handle>/` directory. No questions asked.
+Say `delete me from the leaderboard` (the skill PRs the removal of your `scores/<handle>/`
+directory), or open that PR by hand. No questions asked.
 
 ## The rules
 

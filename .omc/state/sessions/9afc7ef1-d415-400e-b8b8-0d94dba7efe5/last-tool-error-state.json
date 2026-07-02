@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"cd ~/Repos/claude-code-leaderboard\\n# workflow ran on push before Pages was enabled — re-dispatch to deploy\\ngh workflow run board.yml 2>/dev/null; sleep 5\\nfor i in 1 2 3 4 5 6 7 8; do\\n ...",
+  "error": "Exit code 143\nCommand timed out after 2m 0s\npoll 1: queued/\npoll 2: queued/\npoll 3: in_progress/\npoll 4: in_progress/\npoll 5: in_progress/\npoll 6: in_progress/\npoll 7: in_progress/\npoll 8: in_progress/",
+  "timestamp": "2026-07-02T16:00:07.692Z",
+  "retry_count": 1
+}
