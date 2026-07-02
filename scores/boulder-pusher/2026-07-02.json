@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "formula_version": "1.0-clamped",
+  "corpus": {
+    "n_sessions": 800,
+    "n_facets": 148,
+    "active_days": 16,
+    "as_of": "2026-07-02"
+  },
+  "factors": [
+    {
+      "name": "Ship cadence",
+      "score": 100.0,
+      "kind": "full",
+      "w": 10
+    },
+    {
+      "name": "Tool reliability",
+      "score": 96.3,
+      "kind": "full",
+      "w": 5
+    },
+    {
+      "name": "Survival rate",
+      "score": 88.5,
+      "kind": "samp",
+      "w": 10
+    },
+    {
+      "name": "Landing rate",
+      "score": 75.0,
+      "kind": "samp",
+      "w": 20
+    },
+    {
+      "name": "Approach accuracy",
+      "score": 69.6,
+      "kind": "samp",
+      "w": 15
+    },
+    {
+      "name": "Isolation discipline",
+      "score": 65.5,
+      "kind": "full",
+      "w": 10
+    },
+    {
+      "name": "Clean first pass",
+      "score": 62.2,
+      "kind": "samp",
+      "w": 15
+    },
+    {
+      "name": "Push-through",
+      "score": 54.0,
+      "kind": "full",
+      "w": 10
+    },
+    {
+      "name": "Delegation leverage",
+      "score": 35.6,
+      "kind": "full",
+      "w": 5
+    }
+  ],
+  "composite": 72.2,
+  "grade": "B+",
+  "skill_version": "2026.07.02"
+}
