@@ -27,18 +27,19 @@ jobs:
     needs: validate
     runs-on: ubuntu-latest
     permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: Build board
-        run: python3 scripts/build_board.py
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-      - id: deployment
-        uses: actions/deploy-pages@v4
+        run: |
+          python3 scripts/build_board.py
+          touch site/.nojekyll
+      - name: Publish to gh-pages branch
+        run: |
+          cd site
+          git init -q -b gh-pages
+          git config user.name "leaderboard-bot"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -q -m "deploy board $(date -u +%Y-%m-%dT%H:%M)"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
