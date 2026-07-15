@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Harris Claude Code Leaderboard</title>
+<style>
+:root{--bg:#08090A;--panel:#0F1011;--elev:#1C1C1F;--ink:#F7F8F8;--body:#D0D6E0;--muted:#8A8F98;--faint:#62666D;--line:#23252A;--line2:#34343A;--link:#7070FF;--hover:#828FFF;--teal:#00B8CC;--green:#27A644;--yellow:#F0BF00;--red:#EB5757}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Inter Variable","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6;letter-spacing:-.011em}
+.wrap{max-width:880px;margin:0 auto;padding:48px 24px 64px}
+.mono{font-family:"Berkeley Mono",ui-monospace,"SF Mono",Menlo,monospace}
+.eyebrow{font-family:ui-monospace,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--link);margin:0 0 10px;font-weight:510}
+h1{font-size:30px;line-height:1.14;margin:0 0 10px;font-weight:590;letter-spacing:-.022em}
+.lede{color:var(--muted);font-size:14.5px;max-width:64ch;margin:0 0 6px}
+h2{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-family:ui-monospace,monospace;margin:42px 0 14px;font-weight:510}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:6px 20px;box-shadow:0 3px 12px rgba(0,0,0,.09)}
+.row{display:grid;grid-template-columns:44px 1fr 110px 110px 170px;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border:none}
+.row.head{color:var(--faint);font-family:ui-monospace,monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:11px 0 9px}
+.rank{font-family:ui-monospace,monospace;font-size:14px;color:var(--faint);font-weight:590}
+.handle{font-weight:590;font-size:14.5px}
+.delta{font-family:ui-monospace,monospace;font-size:15px;font-weight:590;font-variant-numeric:tabular-nums}
+.up{color:var(--green)} .flat{color:var(--faint)} .down{color:var(--red)}
+.pb{font-family:ui-monospace,monospace;font-size:12px;color:var(--teal)}
+.streak{font-family:ui-monospace,monospace;font-size:11.5px;color:var(--muted);text-align:right}
+.cap{color:var(--muted);font-size:12.5px;font-style:italic;margin:12px 2px 0;line-height:1.55}
+.row.cal2{grid-template-columns:1fr 220px}
+.prog{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:6px;height:10px;overflow:hidden}
+.prog span{display:block;height:100%;background:var(--yellow);border-radius:5px}
+.meta{font-family:ui-monospace,monospace;font-size:11px;color:var(--faint);margin-top:4px}
+.how{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 20px;font-size:13.5px;color:var(--body)}
+.how code{font-family:ui-monospace,monospace;font-size:12px;background:#08090A;border:1px solid var(--line);border-radius:6px;padding:1px 7px}
+.how ol{margin:8px 0 0;padding-left:20px} .how li{margin:5px 0}
+footer{margin-top:46px;padding:16px 18px;border:1px solid var(--line2);border-radius:12px;background:var(--elev);color:var(--body);font-size:13px;line-height:1.6}
+footer b{color:var(--ink)}
+.foot2{margin-top:14px;color:var(--faint);font-size:11.5px;font-family:ui-monospace,monospace;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+a{color:var(--hover)}
+@media(max-width:640px){.row{grid-template-columns:34px 1fr 90px}.pb,.streak{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Harris · Claude Code · community board</p>
+  <h1>Most improved — vs your own baseline</h1>
+  <p class="lede">Opt-in, pseudonymous, scores-only. The board ranks <b>Δ composite against your own first submission</b> — quality-weighted (65% of the composite is landing rate, clean first pass, approach accuracy, survival), throughput factors capped, and no lines-of-code anywhere. No absolute grades are shown.</p>
+
+  <h2>Leaderboard — 1 ranked · 1 players</h2>
+  <div class="card">
+    <div class="row head"><span>#</span><span>handle</span><span>Δ composite</span><span>personal best</span><span class="streak">history</span></div>
+    <div class="row"><span class="rank">1</span><span class="handle">boulder-pusher</span><span class="delta flat">+0.0</span><span class="pb">—</span><span class="streak">2 subs · since 2026-07-02</span></div>
+    
+  </div>
+  <p class="cap">Baseline rows have one submission — the delta race starts on their second. Submissions are strict-allowlist JSON (25 numbers); every row is publicly auditable in <a href="https://github.com/ao92265/claude-code-leaderboard/tree/main/scores">scores/</a>.</p>
+
+  <h2>Calibrating — building corpus to qualify</h2>
+  <div class="card"><div class="row"><span class="handle" style="color:var(--muted)">nobody calibrating</span></div></div>
+  <p class="cap">Qualification: ≥50 sessions and ≥15 analyzed sessions in your latest corpus.</p>
+
+  <h2>How to compete</h2>
+  <div class="how">
+    <ol>
+      <li>Install the <a href="https://github.com/ao92265/claude-code-playbook/tree/main/skills/myinsights">myinsights skill</a>.</li>
+      <li>Say <code>/myinsights submit</code>. It computes your scorecard locally, shows you the exact 25-number payload, and asks once. On yes it forks, commits, and opens the PR for you. Merge = on the board.</li>
+      <li>Resubmit any time with the same command. Say <code>delete me from the leaderboard</code> to remove yourself — no questions.</li>
+    </ol>
+    <p style="margin:10px 0 0;color:var(--muted);font-size:12.5px">The one manual step is deliberate: nothing is ever submitted without you seeing the payload and saying yes. Prefer to do it by hand? PR <code>scores/&lt;handle&gt;/&lt;YYYY-MM-DD&gt;.json</code> yourself — CI validates the allowlist either way.</p>
+  </div>
+
+  <footer>
+    <b>This is a voluntary community game, not a performance instrument.</b> Participation is opt-in, handles are pseudonymous, submissions are a strict allowlist (never transcripts, projects, hours, or code), deletion is self-service, and this board must never be used in performance reviews, ranking discussions, or management reporting. If that framing breaks, the board shuts down.
+  </footer>
+  <div class="foot2">
+    <span>built 2026-07-15 · static · zero trackers</span>
+    <span>scores-only by design · <a href="https://github.com/ao92265/claude-code-leaderboard">source</a></span>
+  </div>
+</div>
+</body>
+</html>
